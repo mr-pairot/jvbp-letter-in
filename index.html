@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JVBP Document - RFA</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+</head>
+<body>
+
+  <div id="loader">
+    <div class="spinner"></div>
+    <p>Loading...</p>
+  </div>
+
+  <div id="iframe-container" style="margin-top: 20px;">
+    <!-- iframe สำหรับแสดง Looker -->
+  </div>
+
+  <script>
+    // กำหนดค่าตัวแปรในไฟล์ HTML (กรณี RFA, RFI, Letter_IN)
+    const buttonName = 'Letter_IN'; // เปลี่ยนเป็น 'RFI' หรือ 'Letter_IN' ตามกรณี
+    const liffId = '2007032148-bV3p0npY'; // เปลี่ยนตามกรณี
+
+    // โหลด script.js
+    const script = document.createElement('script');
+    script.src = 'script.js'; // เพิ่ม script.js
+    script.onload = function () {
+      // ส่งค่าตัวแปรจาก HTML ไปยัง script.js
+      window.buttonName = buttonName;
+      window.liffId = liffId;
+      initLiff(); // เรียกใช้งานฟังก์ชันใน script.js
+    };
+    document.body.appendChild(script);
+  </script>
+</body>
+</html>
